@@ -1,7 +1,11 @@
-<?php 
-	require_once 'dbConnection.php';
+<?php
+    /*
+        PHPMailer est une bibliothèque qui permet de gérer facilement
+        l'envoi d'emails depuis un script PHP
 
-function envoiMail(){
+     */
+
+    require 'vendor/autoload.php';
 
     $mail = new PHPMailer();
 
@@ -35,4 +39,3 @@ function envoiMail(){
     } else {
         echo 'Le message a été envoyé';
     }
-}
