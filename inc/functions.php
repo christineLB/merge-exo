@@ -1,4 +1,3 @@
-
 <?php
 
 function getUser($pdo, $mail)
@@ -47,4 +46,7 @@ function envoiMail(){
     	echo 'Le message a été envoyé';
     }
 }
+ 
+$articles = "SELECT * FROM ARTICLES ORDER BY date DESC LIMIT 3";
+
 
