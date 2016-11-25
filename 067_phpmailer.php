@@ -1,20 +1,13 @@
-
 <?php
+    /*
+        PHPMailer est une bibliothèque qui permet de gérer facilement
+        l'envoi d'emails depuis un script PHP
 
-function getUser($pdo, $mail)
-{
-	$sql = 'SELECT id, mail, lastname, firstname, password, nb_tries, last_pass_change FROM Users WHERE mail = :mail';
-	$stmt = $pdo->prepare($sql);
-	$stmt->bindParam(':mail', $mail);
-	$stmt->execute();
-	return $stmt->fetch();
-}
+     */
 
+    require 'vendor/autoload.php';
 
-
-function envoiMail(){
-
-	$mail = new PHPMailer();
+    $mail = new PHPMailer();
 
     $mail->isSMTP();                                      	// On va se servir de SMTP
     $mail->Host = 'smtp.gmail.com';  						// Serveur SMTP
@@ -41,10 +34,8 @@ function envoiMail(){
     $mail->AltBody = 'Le message en texte brut, pour les clients qui ont désactivé l\'affichage HTML';
 
     if(!$mail->send()) {
-    	echo 'Le message n\'a pas pu être envoyé';
-    	echo 'Mailer Error: ' . $mail->ErrorInfo;
+        echo 'Le message n\'a pas pu être envoyé';
+        echo 'Mailer Error: ' . $mail->ErrorInfo;
     } else {
-    	echo 'Le message a été envoyé';
+        echo 'Le message a été envoyé';
     }
-}
-
